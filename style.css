@@ -39,8 +39,8 @@ section {
   display: flex;
   flex-direction: row;
   overflow-x: auto;
-  gap: 20px;
-  padding: 20px;
+  gap: clamp(10px, 5vw, 20px);
+  padding: clamp(5px, 3vw, 20px);
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
@@ -48,9 +48,9 @@ section {
 /* Individual timeline cards */
 section div {
   flex-shrink: 0;
-  width: 520px;
+  width: clamp(300px, 90vw, 520px);
   border: 1px solid #ddd;
-  padding: 20px;
+  padding: clamp(10px, 4vw, 20px);
   border-radius: 8px;
   position: relative;
   scroll-snap-align: center;
@@ -59,8 +59,8 @@ section div {
 
 /* Images inside timeline cards */
 section div img {
-  width: 500px;
-  height: 333px;
+  width: 100%;
+  aspect-ratio: 500 / 333;
   object-fit: cover;
 }
 
@@ -91,4 +91,40 @@ section + p {
   justify-content: center;
   padding: 20px;
 }
+
+/* Mobile responsive - stack cards vertically on narrow screens */
+@media (max-width: 650px) {
+  /* Stack cards vertically with less padding */
+  section {
+    flex-direction: column;
+    overflow-x: visible;
+    padding: 10px;
+  }
+
+  /* Make cards full width */
+  section div {
+    width: 100%;
+    scroll-snap-align: none;
+    box-sizing: border-box;
+  }
+
+  /* Show text content always, no hover effect */
+  section div p {
+    position: relative;
+    opacity: 1;
+    transition: none;
+  }
+
+  /* Remove hover effect */
+  section div:hover p {
+    opacity: 1;
+  }
+
+  /* Adjust image to fit full-width card while maintaining aspect ratio */
+  section div img {
+    width: 100%;
+    aspect-ratio: 500 / 333;
+  }
+  }
+
   

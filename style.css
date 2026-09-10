@@ -1,1 +1,29 @@
-/* Add your CSS here */
+/* Remove default browser margins to make header span full width */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Resize SVG logo - width adjusts the size, height auto keeps proportions */
+header img {
+  width: 150px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Make sure the header container shows the full logo */
+header {
+  overflow: visible;
+  background-color: #003366;
+  color: white;
+  padding: 20px;
+  max-width: 100%;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+}

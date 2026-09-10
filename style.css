@@ -1,7 +1,13 @@
+/* import font from CDN fonts (same font as intel logo) */
+
+@import url('https://fonts.cdnfonts.com/css/neo-sans-pro');
+                
+
 /* Remove default browser margins to make header span full width */
 body {
   margin: 0;
   padding: 0;
+  font-family: "Neo Sans Pro", "Arial",sans-serif;
 }
 
 /* Resize SVG logo - width adjusts the size, height auto keeps proportions */

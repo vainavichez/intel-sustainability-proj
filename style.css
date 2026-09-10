@@ -56,7 +56,7 @@ section div {
 /* Images inside timeline cards */
 section div img {
   width: 500px;
-  height: 200px;
+  height: 333px;
   object-fit: cover;
 }
 

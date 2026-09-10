@@ -28,3 +28,57 @@ header div {
   flex-flow: column wrap;
 }
 
+/* Timeline cards section - horizontal scrolling layout */
+section {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual timeline cards */
+section div {
+  flex-shrink: 0;
+  width: 520px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Images inside timeline cards */
+section div img {
+  width: 500px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Hide text content by default */
+section div p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #003366;
+  color: white;
+  padding: 10px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show text content on hover */
+section div:hover p {
+  opacity: 1;
+}
+
+/* Center the "Scroll to view timeline" paragraph */
+section + p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+  

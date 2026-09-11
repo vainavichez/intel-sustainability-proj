@@ -7,7 +7,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Neo Sans Pro", "Arial",sans-serif;
+  font-family: "Neo Sans Pro", "Arial", sans-serif;
+  background-color: #f9f9f9;
+  line-height: 1.6;
 }
 
 /* Resize SVG logo - width adjusts the size, height auto keeps proportions */
@@ -24,7 +26,7 @@ header {
   overflow: visible;
   background-color: #003366;
   color: white;
-  padding: 20px;
+  padding: clamp(20px, 5vw, 40px);
   max-width: 100%;
 }
 
@@ -32,6 +34,22 @@ header div {
   display: flex;
   align-items: center;
   flex-flow: column wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header typography */
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin: 20px 0 10px 0;
+  text-align: center;
+}
+
+header p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  max-width: 600px;
+  text-align: center;
+  margin: 0;
 }
 
 /* Timeline cards section - horizontal scrolling layout */
@@ -55,6 +73,13 @@ section div {
   position: relative;
   scroll-snap-align: center;
   scroll-snap-stop: always;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+section div:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Images inside timeline cards */
@@ -62,6 +87,21 @@ section div img {
   width: 100%;
   aspect-ratio: 500 / 333;
   object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Card titles */
+section div h2 {
+  margin: 0 0 5px 0;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: #003366;
+}
+
+section div h3 {
+  margin: 0 0 15px 0;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: #666;
+  font-weight: 600;
 }
 
 /* Hide text content by default */
@@ -84,16 +124,63 @@ section div:hover p {
   opacity: 1;
 }
 
-/* Center the "Scroll to view timeline" paragraph */
-section + p {
+/* Center the instruction text */
+.timeline-instruction {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.timeline-instruction p {
+  margin: 0;
+  color: #666;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* Footer styling */
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: clamp(20px, 3vw, 30px);
+  margin-top: 30px;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+}
+
+footer p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Tablet responsive - optimize for medium screens (650px - 1024px) */
+@media (max-width: 1024px) and (min-width: 650px) {
+  /* Keep horizontal scroll but adjust card size for tablets */
+  section {
+    padding: clamp(10px, 3vw, 20px);
+  }
+
+  section div {
+    width: clamp(280px, 80vw, 420px);
+  }
+
+  header {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
 }
 
 /* Mobile responsive - stack cards vertically on narrow screens */
-@media (max-width: 650px) {
+@media (max-width: 649px) {
   /* Stack cards vertically with less padding */
   section {
     flex-direction: column;
@@ -125,6 +212,15 @@ section + p {
     width: 100%;
     aspect-ratio: 500 / 333;
   }
+
+  /* Adjust header for mobile */
+  header h1 {
+    font-size: 1.5rem;
   }
+
+  header p {
+    font-size: 0.9rem;
+  }
+}
 
   
